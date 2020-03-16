@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+
+        <h2 style>search box using javascript youtubers</h2>
+        <input type="text" id="myinput" placeholder="search your favourite tech youtubers..."
+        onkeyup="searchyoutubers()">
+
+        <ul id="myul">
+            <li><a href="#">superman</a></li>
+            <li><a href="#">spiderman</a></li>
+            <li><a href="#">batman</a></li>
+            <li><a href="#">wonder woman</a></li>
+            <li><a href="#">scarlet witch</a></li>
+            <li><a href="#">ironman</a></li>
+            <li><a href="https://www.marvel.com/characters/captain-america-steve-rogers">captain america</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const searchyoutubers = () => {
+            let filter = document.getElementById('myinput').value.toUpperCase();
+            let ul = document.getElementById('myul');
+            let li = ul.getElementsByTagName('li');
+
+            for(var i=0;i<li.length;i++){
+                let a = li[i].getElementsByTagName('a')[0];
+
+                let textvalue = a.textContent  || a.innerHTML ;
+
+                if(textvalue.toUpperCase().indexOf(filter) > -1){
+                    li[i].style.display = '';
+                } else {
+                    li[i].style.display = 'none';
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>
